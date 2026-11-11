@@ -1,16 +1,49 @@
-## Hi there 👋
+## 프로젝트
 
-<!--
-**rufan-coder/rufan-coder** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+### MultiPcKvm · Windows 멀티 PC 통합 제어 프로그램
 
-Here are some ideas to get you started:
+> 같은 네트워크에 있는 Windows PC 두 대를 키보드·마우스 하나로 조종합니다.  
+> 커서를 화면 끝으로 밀면 상대 PC로 넘어가고, 상대 화면을 창으로 보면서 조종하거나 파일을 주고받을 수 있습니다.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+- **기간**: [2026.9 ~ 계속 진행중] · 2인 팀 프로젝트
+- **기술**: C#, .NET 10, WPF, TCP/UDP, SQLite
+- **맡은 부분**: 네트워크(`MultiPcKvm.Network`), 화면 공유·파일 전송(`MultiPcKvm.Video`)
+  - 같은 네트워크의 PC 자동 검색: UDP 브로드캐스트(전체·네트워크별)와 직접 탐색을 함께 쓰고, 최근 연결한 기기는 바로 확인
+  - 입력 데이터 TCP/UDP 전송과 연결 관리 (동시 연결, 제3자 연결 처리)
+  - 네트워크 어댑터가 여러 개인 PC에서 통신할 어댑터 지정 (169.254 주소 포함)
+  - 화면 공유: GDI로 화면을 캡처하고 바뀐 칸만 Deflate로 압축해 전송
+  - 파일 전송: 1MB 단위로 나눠 보내고 SHA-256으로 손상 여부 확인
+- **저장소**: [rufan-coder/multi-pc-kvm](https://github.com/rufan-coder/multi-pc-kvm)
+
+### Simple RPG · C# WinForms 턴제 RPG
+
+> 직업을 골라 8라운드의 몬스터를 차례로 쓰러뜨리는 턴제 RPG입니다.  
+> 공격·스킬·아이템 사용, 레벨업과 스킬 습득, 아이템 드롭을 구현했습니다.
+
+- **기간**: [2025.10 ~ 2025.11] · 2인 팀 프로젝트 (6주)
+- **기술**: C#, .NET 8, Windows Forms
+- **맡은 부분**: 구현 전체 (전투 로직, 사운드·이미지 처리, 화면 전환, 클래스 설계)
+  - 완성 후 코드를 다시 보며 구조 개선: 화면과 전투 로직을 인터페이스(`IBattleView`)로 분리하고, 화면 전환 때 창이 쌓이던 문제와 효과음 재생 방식을 정리
+- **저장소**: [rufan-coder/simple-rpg](https://github.com/rufan-coder/simple-rpg)
+
+### elsword_calc · 엘소드 스펙 계산기 · 스탯 기반 DPS 계산 웹 페이지
+
+> 게임 스탯창 값을 넣으면 어떤 옵션을 올리는 게 DPS에 가장 이득인지 계산합니다.  
+> 스탯창에 안 보이는 버프·전직 패시브·던전 저항까지 반영하고, 스크린샷을 올리면 수치를 읽어 자동으로 채웁니다.
+
+- **기간**: [2026.9 ~ 계속 진행중] · 개인 프로젝트
+- **기술**: JavaScript(ES 모듈), HTML/CSS, Tesseract.js, Node 테스트 러너
+- **맡은 부분**: 기획, 요구사항 정의, 계산식 검증, 배포·운영
+  - 실전 수치 계산: 점감을 풀고 버프·패시브를 더한 뒤 다시 적용하는 순서로, 전직 60개의 패시브와 던전별 크리티컬 저항 반영
+  - 옵션 비교: 옵션을 하나 더했을 때의 DPS 상승률과 가격 대비 효율 순위
+  - 크극 최적화: 크리티컬·극대화·보스 데미지 소켓 배분 약 200만 가지를 0.1% 단위로 전부 계산
+  - 소켓 최적화: 38~42칸을 마법석 7종으로 채우는 최적 조합을 동적 계획법으로 계산
+  - 스크린샷 인식: 브라우저 안에서 글자를 읽고, 형식이 맞지 않는 숫자는 버려서 틀린 값이 들어가지 않게 처리
+  - 구조와 검증: 데이터·계산·인식·화면을 모듈로 분리하고, 커뮤니티 계산 시트의 값과 대조하는 테스트 30개 작성
+- **사이트**: [rufan-coder.github.io/elsword_calc](https://rufan-coder.github.io/elsword_calc/)
+- **저장소**: [rufan-coder/elsword_calc](https://github.com/rufan-coder/elsword_calc)
+
+## 자격증
+
+- SQLD (SQL 개발자)
+- JLPT N1
